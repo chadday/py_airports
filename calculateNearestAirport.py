@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import csv
 from math import cos, asin, sqrt
 from timeit import default_timer as timer
 from pathlib import Path

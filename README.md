@@ -1,3 +1,12 @@
+## Fork of `py_airports`
+
+_ Refactors to remove limit of nearest airports to ZIP Code only within same state
+_ Adds full US output
+_ Updates airports source file from [here](https://github.com/davidmegginson/ourairports-data)
+
+
+## Original README below
+
 # Nearest Airport
 
 _Calculate the nearest airport of each zipcode using Python. Based on Haversine formula_

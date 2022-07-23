@@ -6,19 +6,25 @@ from pathlib import Path
 from datetime import datetime
 import glob
 
-def main():
+
+states = [ 
+        'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 
+        'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 
+        'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 
+        'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 
+        'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 
+        'WY']
+
+def main(states):
     '''
     Refactor 
     '''
     repo_path = Path().parent.resolve()
-    FILE_AIRPORTS  = f'{repo_path}/Input/world-airports.csv'
+    FILE_AIRPORTS  = f'{repo_path}/Input/world-airports-new.csv'
     FILE_ZIPCODES  = f'{repo_path}/Input/us_postal_codes.csv'
     zipcodes = pd.read_csv(FILE_ZIPCODES,encoding = "ISO-8859-1")
     airports = pd.read_csv(FILE_AIRPORTS, encoding = "ISO-8859-1")
     us_airports = prepare_airports_df(airports)
-    states_scope = us_airports['iso_state'].unique()
-    ## Remove extraneous stusab
-    states_scope = [x for x in states_scope if x != 'U']
     perf_time = []
     entries = 0
     i = datetime.now()
@@ -26,8 +32,8 @@ def main():
     try:
         start = timer()
         print("Calculating for the following states: ")
-        [print (x) for x in states_scope]
-        for state in states_scope:
+        [print (x) for x in states]
+        for state in states:
             start_state = timer()
             calculateNearestAirport(
                 state, 
@@ -57,32 +63,34 @@ def main():
         print('Output full csv. Done!')
 
 def prepare_airports_df(airports):
-    columns_to_drop = ['elevation_ft', 'scheduled_service', 'gps_code',
-       'home_link', 'wikipedia_link', 'keywords', 'score',
-       'last_updated']
+    columns_to_drop = [
+        'elevation_ft', 
+        'scheduled_service', 
+        'gps_code',
+        'home_link', 
+        'wikipedia_link', 
+        'keywords', 
+       #'score',
+       #'last_updated'
+       ]
     airports.drop(columns_to_drop, axis=1, inplace=True)
     # filter only US and for only large airports
     us_airports = airports[(airports['iso_country']=='US'
         ) & (airports['type'].isin([
             'large_airport',
-            #'medium_airport',
+            'medium_airport',
             #'small_airport'
             ]))]
     # Retrieve State Abbreviation
+    us_airports = us_airports.copy()
     us_airports.loc[:,'iso_state'] = us_airports['iso_region'].str.split('-').str[1]
     return us_airports
-
-
-def get_airports(state, airport_df):
-    df = airport_df[airport_df['iso_state']==state]
-    return df.to_dict('records')
 
 def get_zipcodes(state, df_zipcodes):
     df = df_zipcodes[(df_zipcodes['State Abbreviation']==state)]
     return df.to_dict('records')
 
 def get_info(state):
-    print(len(get_airports(state)), "airports in", state)
     print(len(get_zipcodes(state)), "zipcode in", state)
 
 
@@ -144,11 +152,11 @@ def calculateNearestAirport(
         dicts = []
         print(f'Calculating for {state} with {len(zipcodes)} zipcodes...')
         for zc in zipcodes:
-            dicts.append(closest(get_airports(state, df_airports), zc, repo_path))
+            dicts.append(closest(df_airports.to_dict('records'), zc, repo_path))
         pd.DataFrame(dicts).to_csv(f'{repo_path}/Output/{timestamp}{state}_nearest_airport.csv', index=False)
     finally:
         entries = entries + len(zipcodes)
         print(f'Done calculating for {len(zipcodes)} zipcodes of state')
 
 if __name__ == "__main__":
-    main()
+    main(states)

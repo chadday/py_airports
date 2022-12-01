@@ -1,3 +1,5 @@
 Output/*
 Output/*/*
 !Output/us_nearest_airports.csv
+venv
+venv/*

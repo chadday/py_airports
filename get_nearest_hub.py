@@ -1,0 +1,186 @@
+import os
+import pandas as pd
+from math import cos, asin, sqrt
+from timeit import default_timer as timer
+from pathlib import Path
+from datetime import datetime
+import glob
+
+
+states = [ 
+        'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 
+        'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 
+        'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 
+        'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 
+        'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 
+        'WY']
+
+def main(states):
+    '''
+    Refactor 
+    '''
+    repo_path = Path().parent.resolve()
+    FILE_AIRPORTS  = f'{repo_path}/Input/world-airports-new.csv'
+    FILE_ZIPCODES  = f'{repo_path}/Input/us_postal_codes.csv'
+    FILE_HUBS = f'{repo_path}/Input/hubs.csv'
+    zipcodes = pd.read_csv(FILE_ZIPCODES,encoding = "ISO-8859-1")
+    airports = pd.read_csv(FILE_AIRPORTS, encoding = "ISO-8859-1")
+    hubs = pd.read_csv(FILE_HUBS)
+    us_airports = prepare_airports_df(airports)
+    hubs = prepare_hubs(hubs)
+    us_hubs = pd.merge(us_airports, 
+                        hubs[['ident']], 
+                        how='inner', 
+                        left_on=['ident'], 
+                        right_on=['ident'])
+    perf_time = []
+    entries = 0
+    timestamp = datetime.now().strftime('%Y-%m%d-')
+    try:
+        start = timer()
+        print("Calculating for the following states: ")
+        [print (x) for x in states]
+        for state in states:
+            start_state = timer()
+            calculateNearestAirport(
+                state, 
+                timestamp, 
+                zipcodes, 
+                us_hubs,
+                entries,
+                repo_path)
+            end_state = timer()
+            diff = (end_state-start_state)
+            time_state={
+            'state': state,
+            'duration': round(diff/60,3)
+            }
+            perf_time.append(time_state)
+
+    finally:
+        end = timer()
+        print(round((end - start)/60,3), "minutes")
+        print(len(perf_time), "states")
+        print(entries, "zipcodes")
+        for k in perf_time:
+            print(k)
+        npaths = [x for x in glob.glob(f'{repo_path}/Output/*_nearest_*.csv')]
+        ndfs = [pd.read_csv(n) for n in npaths]
+        pd.concat(ndfs).to_csv(f'{repo_path}/Output/us_nearest_hubs.csv', index=False)
+        print('Output full csv. Done!')
+
+def prepare_airports_df(airports):
+    columns_to_drop = [
+        'elevation_ft', 
+        'scheduled_service', 
+        'gps_code',
+        'home_link', 
+        'wikipedia_link', 
+        'keywords', 
+       #'score',
+       #'last_updated'
+       ]
+    airports.drop(columns_to_drop, axis=1, inplace=True)
+    # filter for US
+    us_airports = airports[(airports['iso_country'].isin(['US', 'PR', 'VI']))]
+    # Retrieve State Abbreviation
+    us_airports = us_airports.copy()
+    us_airports.loc[:,'iso_state'] = us_airports['iso_region'].str.split('-').str[1]
+    return us_airports
+
+
+def prepare_hubs(hubs):
+    '''
+    
+    '''
+    hubs['ident'] = 'K' + hubs['Locid']
+    ident_replaces = {
+        'SJU': 'TJSJ',
+        'HNL': 'PHNL',
+        'OGG': 'PHOG',
+        'ANC': 'PANC',
+        'KOA': 'PHKO',
+        'LIH': 'PHLI',
+        'STT': 'TIST',
+        'FAI': 'PAFA',
+        'ITO': 'PHTO'
+    }
+    for k, v in ident_replaces.items():
+        hubs.loc[(hubs['Locid']==k), 'ident']  = v
+    return hubs
+
+
+def get_zipcodes(state, df_zipcodes):
+    df = df_zipcodes[(df_zipcodes['State Abbreviation']==state)]
+    return df.to_dict('records')
+
+def get_info(state):
+    print(len(get_zipcodes(state)), "zipcode in", state)
+
+
+def distance(lat1, lon1, lat2, lon2):
+    '''
+    Function: distance, Purpose: Calculation
+    Calculates distance between two points: zipcode lat-lon and airport lat-lon
+    Based on Haversine Formula (found in StackOverflow)
+    Uses math library
+    '''
+    p = 0.017453292519943295  #Pi/180
+    a = 0.5 - cos((lat2-lat1)*p)/2 + cos(lat1*p)*cos(lat2*p) * (1-cos((lon2-lon1)*p)) / 2
+    return 12742 * asin(sqrt(a)) #2*R*asin..
+
+def closest(data, zipcode, repo_path):
+    '''
+    Function: closest
+    Purpose: Calculation
+    Runs distance function to given airport dataset
+    Returns airport data with smallest distance to the given zipcode
+    '''
+    dl = []
+    for p in data:
+        ap = {
+        'zipcode': zipcode['Zip Code'],
+        'country': zipcode['Country'],
+        'state': zipcode['State Abbreviation'],
+        'state_full': zipcode['State'],
+        'county': zipcode['County'],
+        'latitude-zip': zipcode['Latitude'],
+        'longitude-zip': zipcode['Longitude'],
+        'nearest-airport': p['ident'],
+        'latitude-air': p['latitude_deg'],
+        'longitude-air': p['longitude_deg'],
+        'distance': distance(zipcode['Latitude'],zipcode['Longitude'],p['latitude_deg'],p['longitude_deg'])
+        }
+        dl.append(ap)
+    dl_sorted = sorted(dl, key=lambda k: k['distance'])
+    zips_to_csv(dl_sorted, zipcode['State Abbreviation'], zipcode['Zip Code'], repo_path)
+    return dl_sorted[0]
+
+def zips_to_csv(dl_sorted, state, zipcode, repo_path):
+    output_folder = f'{repo_path}/Output/{state}/'
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    pd.DataFrame(dl_sorted).to_csv(f'{output_folder}{str(zipcode)}_all airports.csv', index=False)
+
+
+def calculateNearestAirport(
+        state, 
+        timestamp, 
+        df_zipcodes,
+        df_airports,
+        entries, 
+        repo_path
+    ):
+    try:
+        zipcodes = get_zipcodes(state, df_zipcodes)
+        dicts = []
+        print(f'Calculating for {state} with {len(zipcodes)} zipcodes...')
+        for zc in zipcodes:
+            dicts.append(closest(df_airports.to_dict('records'), zc, repo_path))
+        pd.DataFrame(dicts).to_csv(f'{repo_path}/Output/{timestamp}{state}_nearest_airport.csv', index=False)
+    finally:
+        entries = entries + len(zipcodes)
+        print(f'Done calculating for {len(zipcodes)} zipcodes of state')
+
+if __name__ == "__main__":
+    main(states)

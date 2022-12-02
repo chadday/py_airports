@@ -1,0 +1,146 @@
+﻿Rank,RO,ST,Locid,City,Airport Name,S/L,Hub,CY 21 Enplanements,CY 20 Enplanements,% Change
+1,SO,GA,ATL,Atlanta,Hartsfield - Jackson Atlanta International,P,L,"36,676,010","20,559,866",78.39%
+2,SW,TX,DFW,Fort Worth,Dallas-Fort Worth International,P,L,"30,005,266","18,593,421",61.38%
+3,NM,CO,DEN,Denver,Denver International,P,L,"28,645,527","16,243,216",76.35%
+4,GL,IL,ORD,Chicago,Chicago O'Hare International,P,L,"26,350,976","14,606,034",80.41%
+5,WP,CA,LAX,Los Angeles,Los Angeles International,P,L,"23,663,410","14,055,777",68.35%
+6,SO,NC,CLT,Charlotte,Charlotte/Douglas International,P,L,"20,900,875","12,952,869",61.36%
+7,SO,FL,MCO,Orlando,Orlando International,P,L,"19,618,838","10,467,728",87.42%
+8,WP,NV,LAS,Las Vegas,Harry Reid International,P,L,"19,160,342","10,584,059",81.03%
+9,WP,AZ,PHX,Phoenix,Phoenix Sky Harbor International,P,L,"18,940,287","10,531,436",79.85%
+10,SO,FL,MIA,Miami,Miami International,P,L,"17,500,096","8,786,007",99.18%
+11,NM,WA,SEA,Seattle,Seattle-Tacoma International,P,L,"17,430,195","9,462,411",84.20%
+12,SW,TX,IAH,Houston,George Bush Intcntl/Houston,P,L,"16,242,821","8,682,558",87.07%
+13,EA,NY,JFK,New York,John F Kennedy International,P,L,"15,273,342","8,269,819",84.69%
+14,EA,NJ,EWR,Newark,Newark Liberty International,P,L,"14,514,049","7,985,474",81.76%
+15,SO,FL,FLL,Fort Lauderdale,Fort Lauderdale/Hollywood International,P,L,"13,598,994","8,015,744",69.65%
+16,GL,MN,MSP,Minneapolis,Minneapolis-St Paul International/Wold-Chamberlain,P,L,"12,211,409","7,069,720",72.73%
+17,WP,CA,SFO,San Francisco ,San Francisco International,P,L,"11,725,347","7,745,057",51.39%
+18,GL,MI,DTW,Detroit,Detroit Metro Wayne County,P,L,"11,517,696","6,822,324",68.82%
+19,NE,MA,BOS,Boston,General Edward Lawrence Logan International,P,L,"10,909,817","6,035,452",80.76%
+20,NM,UT,SLC,Salt Lake City,Salt Lake City International,P,L,"10,795,906","5,981,032",80.50%
+21,EA,PA,PHL,Philadelphia,Philadelphia International,P,L,"9,820,222","5,753,239",70.69%
+22,EA,MD,BWI,Glen Burnie,Baltimore/Washington International Thurgood Marshall,P,L,"9,253,561","5,451,355",69.75%
+23,SO,FL,TPA,Tampa,Tampa International,P,L,"8,847,197","4,966,775",78.13%
+24,WP,CA,SAN,San Diego,San Diego International,P,L,"7,836,360","4,637,856",68.97%
+25,EA,NY,LGA,New York,Laguardia,P,L,"7,827,307","4,147,116",88.74%
+26,GL,IL,MDW,Chicago,Chicago Midway International,P,L,"7,680,617","4,236,603",81.29%
+27,SO,TN,BNA,Nashville,Nashville International,P,L,"7,594,049","4,013,995",89.19%
+28,EA,VA,IAD,Dulles,Washington Dulles International,P,L,"7,227,875","3,862,658",87.12%
+29,EA,VA,DCA,Arlington,Ronald Reagan Washington Ntl,P,L,"6,731,737","3,573,489",88.38%
+30,SW,TX,AUS,Austin,Austin-Bergstrom International,P,L,"6,666,215","3,141,505",112.20%
+31,SW,TX,DAL,Dallas,Dallas Love Field,P,M,"6,487,563","3,669,930",76.78%
+32,WP,HI,HNL,Honolulu,Daniel K Inouye International,P,M,"5,830,928","3,126,391",86.51%
+33,NM,OR,PDX,Portland,Portland International,P,M,"5,759,879","3,455,877",66.67%
+34,SW,TX,HOU,Houston,William P Hobby,P,M,"5,560,780","3,127,178",77.82%
+35,SO,FL,RSW,Fort Myers,Southwest Florida International,P,M,"5,080,805","2,947,139",72.40%
+36,CE,MO,STL,St. Louis,St Louis Lambert International,P,M,"5,070,471","3,041,765",66.70%
+37,WP,CA,SMF,Sacramento,Sacramento International,P,M,"4,760,275","2,710,342",75.63%
+38,SO,PR,SJU,San Juan,Luis Munoz Marin International,P,M,"4,738,725","2,362,851",100.55%
+39,SO,NC,RDU,Raleigh,Raleigh-Durham International,P,M,"4,311,049","2,337,496",84.43%
+40,SW,LA,MSY,New Orleans,Louis Armstrong New Orleans International,P,M,"4,017,147","2,632,606",52.59%
+41,WP,CA,OAK,Oakland,Metro Oakland International,P,M,"4,011,953","2,271,294",76.64%
+42,WP,CA,SNA,Santa Ana,John Wayne/Orange County,P,M,"3,807,205","1,824,836",108.63%
+43,CE,MO,MCI,Kansas City,Kansas City International,P,M,"3,795,290","2,167,616",75.09%
+44,SW,TX,SAT,San Antonio,San Antonio International,P,M,"3,677,643","1,919,958",91.55%
+45,WP,CA,SJC,San Jose,Norman Y Mineta San Jose International,P,M,"3,619,690","2,283,186",58.54%
+46,GL,OH,CLE,Cleveland,Cleveland-Hopkins International,P,M,"3,552,402","1,990,156",78.50%
+47,GL,IN,IND,Indianapolis,Indianapolis International,P,M,"3,487,100","1,989,126",75.31%
+48,EA,PA,PIT,Pittsburgh,Pittsburgh International,P,M,"3,069,259","1,742,406",76.15%
+49,SO,KY,CVG,Hebron,Cincinnati/Northern Kentucky International,P,M,"3,050,597","1,729,395",76.40%
+50,WP,HI,OGG,Kahului,Kahului,P,M,"2,933,315","1,135,141",158.41%
+51,GL,OH,CMH,Columbus,John Glenn Columbus International,P,M,"2,825,259","1,577,596",79.09%
+52,SO,FL,PBI,West Palm Beach,Palm Beach International,P,M,"2,567,897","1,518,732",69.08%
+53,SO,FL,JAX,Jacksonville,Jacksonville International,P,M,"2,425,685","1,367,501",77.38%
+54,NE,CT,BDL,Windsor Locks,Bradley International,P,M,"2,273,259","1,150,033",97.67%
+55,GL,WI,MKE,Milwaukee,General Mitchell International,P,M,"2,231,010","1,263,385",76.59%
+56,WP,CA,ONT,Ontario,Ontario International,P,M,"2,201,528","1,237,946",77.84%
+57,AL,AK,ANC,Anchorage,Ted Stevens Anchorage International,P,M,"2,184,959","1,157,301",88.80%
+58,SO,SC,CHS,Charleston,Charleston AFB/International,P,M,"2,015,277","944,660",113.33%
+59,WP,CA,BUR,Burbank,Bob Hope,P,M,"1,942,417","1,056,838",83.80%
+60,CE,NE,OMA,Omaha,Eppley Airfield,P,M,"1,829,912","1,036,245",76.59%
+61,NM,ID,BOI,Boise,Boise Air Trml/Gowen Field,P,M,"1,809,000","991,241",82.50%
+62,SO,TN,MEM,Memphis,Memphis International,P,M,"1,793,073","1,015,981",76.49%
+63,WP,NV,RNO,Reno,Reno/Tahoe International,P,M,"1,781,785","976,937",82.38%
+64,SW,NM,ABQ,Albuquerque,Albuquerque International Sunport,P,M,"1,688,646","868,922",94.34%
+65,EA,VA,ORF,Norfolk,Norfolk International,P,M,"1,658,024","884,882",87.37%
+66,SW,OK,OKC,Oklahoma City,Will Rogers World,P,S,"1,632,197","934,842",74.60%
+67,EA,VA,RIC,Highland Springs,Richmond International,P,S,"1,603,149","847,811",89.09%
+68,NM,WA,GEG,Spokane,Spokane International,P,S,"1,586,110","913,291",73.67%
+69,SO,SC,MYR,Myrtle Beach,Myrtle Beach International,P,S,"1,579,987","545,122",189.84%
+70,SO,FL,SRQ,Sarasota,Sarasota/Bradenton International,P,S,"1,574,063","615,337",155.81%
+71,SO,KY,SDF,Louisville,Louisville Muhammad Ali International,P,S,"1,529,472","785,759",94.65%
+72,GL,MI,GRR,Grand Rapids,Gerald R Ford International,P,S,"1,450,377","857,092",69.22%
+73,SW,TX,ELP,El Paso,El Paso International,P,S,"1,438,321","760,165",89.21%
+74,EA,NY,BUF,Buffalo,Buffalo Niagara International,P,S,"1,427,891","703,401",103.00%
+75,WP,HI,KOA,Kailua Kona,Ellison Onizuka Kona International at Keahole,P,S,"1,404,584","625,484",124.56%
+76,SO,GA,SAV,Savannah,Savannah/Hilton Head International,P,S,"1,360,214","576,827",135.81%
+77,WP,AZ,TUS,Tucson,Tucson International,P,S,"1,323,536","823,465",60.73%
+78,SO,FL,SFB,Sanford,Orlando Sanford International,P,S,"1,174,471","759,301",54.68%
+79,SO,FL,PNS,Pensacola,Pensacola International,P,S,"1,168,575","577,431",102.37%
+80,NE,RI,PVD,Warwick,Rhode Island Tf Green International,P,S,"1,159,679","641,518",80.77%
+81,SW,OK,TUL,Tulsa,Tulsa International,P,S,"1,154,527","664,259",73.81%
+82,SO,AL,BHM,Birmingham,Birmingham-Shuttlesworth International,P,S,"1,081,328","622,789",73.63%
+83,CE,IA,DSM,Des Moines,Des Moines International,P,S,"1,066,826","632,022",68.80%
+84,WP,CA,PSP,Palm Springs,Palm Springs International,P,S,"1,044,045","632,282",65.12%
+85,WP,HI,LIH,Lihue,Lihue,P,S,"1,039,607","492,509",111.08%
+86,WP,CA,LGB,Long Beach,Long Beach (Daugherty Field),P,S,"1,039,432","504,478",106.04%
+87,SO,FL,PIE,Clearwater,St Pete-Clearwater International,P,S,"1,021,007","697,425",46.40%
+88,SO,TN,TYS,Alcoa,McGhee Tyson,P,S,"976,601","554,685",76.06%
+89,NM,MT,BZN,Bozeman,Bozeman Yellowstone International,P,S,"973,715","445,381",118.63%
+90,SO,FL,VPS,Valparaiso,Eglin AFB/Destin-Ft Walton Beach,P,S,"973,477","461,177",111.09%
+91,EA,NY,ALB,Albany,Albany International,P,S,"966,201","509,428",89.66%
+92,WP,CA,FAT,Fresno,Fresno Yosemite International,P,S,"960,594","486,081",97.62%
+93,NM,CO,COS,Colorado Springs,City of Colorado Springs Municipal,P,S,"941,917","364,178",158.64%
+94,SO,SC,GSP,Greer,Greenville Spartanburg International,P,S,"878,450","509,956",72.26%
+95,NE,ME,PWM,Portland,Portland International Jetport,P,S,"854,142","394,089",116.74%
+96,EA,NY,SYR,Syracuse,Syracuse Hancock International,P,S,"840,994","433,775",93.88%
+97,SW,AR,LIT,Little Rock,Bill and Hillary Clinton Ntl/Adams Field,P,S,"827,922","469,380",76.39%
+98,WP,AZ,IWA,Mesa,Phoenix-Mesa Gateway,P,S,"795,407","597,843",33.05%
+99,SO,FL,ECP,Panama City,Northwest Florida Beaches International,P,S,"794,846","398,792",99.31%
+100,SO,FL,PGD,Punta Gorda,Punta Gorda,P,S,"783,397","596,859",31.25%
+101,EA,NY,ROC,Rochester,Frederick Douglass/Greater Rochester International,P,S,"769,560","412,226",86.68%
+102,SO,FL,EYW,Key West,Key West International,P,S,"741,130","336,023",120.56%
+103,SO,VI,STT,Charlotte Amalie,Cyril E King,P,S,"731,693","355,238",105.97%
+104,SO,NC,AVL,Asheville,Asheville Regional,P,S,"722,892","359,256",101.22%
+105,GL,WI,MSN,Madison,Dane County Regional/Truax Field,P,S,"699,167","412,729",69.40%
+106,CE,KS,ICT,Wichita,Wichita Dwight D Eisenhower Ntl,P,S,"633,562","381,825",65.93%
+107,SO,NC,GSO,Greensboro,Piedmont Triad International,P,S,"627,000","378,973",65.45%
+108,SW,AR,XNA,Bentonville,Northwest Arkansas Ntl,P,S,"598,787","346,215",72.95%
+109,NM,OR,EUG,Eugene,Mahlon Sweet Field,P,S,"566,111","266,957",112.06%
+110,EA,NY,ISP,Islip,Long Island MacArthur,P,S,"553,430","262,983",110.44%
+111,EA,NY,HPN,White Plains,Westchester County,P,S,"547,011","232,325",135.45%
+112,CE,IA,CID,Cedar Rapids,The Eastern Iowa,P,S,"531,295","310,028",71.37%
+113,GL,OH,DAY,Dayton,James M Cox Dayton International,P,S,"517,621","315,051",64.30%
+114,EA,PA,MDT,Harrisburg,Harrisburg International,P,S,"512,251","312,258",64.05%
+115,SW,TX,MAF,Midland,Midland International Air And Space Port,P,S,"504,264","319,570",57.79%
+116,GL,SD,FSD,Sioux Falls,Joe Foss Field,P,S,"501,423","292,089",71.67%
+117,NM,WY,JAC,Jackson,Jackson Hole,P,S,"497,548","276,297",80.08%
+118,CE,MO,SGF,Springfield,Springfield-Branson Ntl,P,S,"480,975","292,246",64.58%
+119,NE,NH,MHT,Manchester,Manchester Boston Regional,P,S,"478,143","305,958",56.28%
+120,SW,TX,MFE,McAllen,McAllen Miller International,P,S,"477,636","191,497",149.42%
+121,SO,MS,JAN,Jackson,Jackson-Medgar Wiley Evers International,P,S,"466,067","209,230",122.75%
+122,SO,KY,LEX,Lexington,Blue Grass,P,S,"464,313","288,536",60.92%
+123,SO,NC,ILM,Wilmington,Wilmington International,P,S,"462,572","239,752",92.94%
+124,SO,AL,HSV,Huntsville,Huntsville International-Carl T Jones Field,P,S,"459,759","268,790",71.05%
+125,AL,AK,FAI,Fairbanks,Fairbanks International,P,S,"450,694","233,484",93.03%
+126,WP,CA,SBA,Santa Barbara,Santa Barbara Municipal,P,S,"440,229","193,738",127.23%
+127,NM,OR,MFR,Medford,Rogue Valley International - Medford,P,S,"437,079","244,996",78.40%
+128,EA,NJ,ACY,Atlantic City,Atlantic City International,P,S,"426,686","221,490",92.64%
+129,NM,OR,RDM,Redmond,Roberts Field,P,S,"422,214","224,600",87.98%
+130,SO,SC,CAE,Columbia,Columbia Metro,P,S,"418,391","271,923",53.86%
+131,NM,MT,GPI,Kalispell,Glacier Park International,P,S,"418,094","215,443",94.06%
+132,GL,ND,FAR,Fargo,Hector International,P,S,"408,477","244,019",67.40%
+133,SW,TX,LBB,Lubbock,Lubbock Preston Smith International,P,S,"405,157","253,126",60.06%
+134,NM,MT,MSO,Missoula,Missoula Montana,P,S,"384,925","209,035",84.14%
+135,NE,VT,BTV,Burlington,Burlington International,P,S,"382,744","200,182",91.20%
+136,NM,MT,BIL,Billings,Billings Logan International,P,S,"379,300","240,713",57.57%
+137,SO,TN,CHA,Chattanooga,Lovell Field,P,S,"377,726","223,725",68.83%
+138,WP,HI,ITO,Hilo,Hilo International,P,S,"358,471","232,503",54.18%
+139,EA,PA,ABE,Allentown,Lehigh Valley International,P,S,"355,841","187,530",89.75%
+140,SW,TX,HRL,Harlingen,Valley International,P,S,"355,190","172,878",105.46%
+141,GL,WI,ATW,Appleton,Appleton International,P,S,"352,006","184,128",91.17%
+142,NM,WA,PSC,Pasco,Tri-Cities,P,S,"347,438","190,322",82.55%
+143,GL,IN,SBN,South Bend,South Bend International,P,S,"341,343","209,214",63.15%
+144,GL,SD,RAP,Rapid City,Rapid City Regional,P,S,"337,788","179,119",88.58%
+145,GL,IN,FWA,Fort Wayne,Fort Wayne International,P,S,"335,804","213,125",57.56%

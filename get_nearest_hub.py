@@ -29,7 +29,7 @@ def main(states):
     us_airports = prepare_airports_df(airports)
     hubs = prepare_hubs(hubs)
     us_hubs = pd.merge(us_airports, 
-                        hubs[['ident']], 
+                        hubs[['ident', 'Locid', 'airport_name']], 
                         how='inner', 
                         left_on=['ident'], 
                         right_on=['ident'])
@@ -66,7 +66,9 @@ def main(states):
             print(k)
         npaths = [x for x in glob.glob(f'{repo_path}/Output/*_nearest_*.csv')]
         ndfs = [pd.read_csv(n) for n in npaths]
-        pd.concat(ndfs).to_csv(f'{repo_path}/Output/us_nearest_hubs.csv', index=False)
+        all_data = pd.concat(ndfs)
+        all_data = all_data.sort_values(by=['state'])
+        all_data.to_csv(f'{repo_path}/Output/us_nearest_hubs.csv', index=False)
         print('Output full csv. Done!')
 
 def prepare_airports_df(airports):
@@ -91,7 +93,7 @@ def prepare_airports_df(airports):
 
 def prepare_hubs(hubs):
     '''
-    
+    Filters and crosswalks hubs df to join to us_airports
     '''
     hubs['ident'] = 'K' + hubs['Locid']
     ident_replaces = {
@@ -146,7 +148,9 @@ def closest(data, zipcode, repo_path):
         'county': zipcode['County'],
         'latitude-zip': zipcode['Latitude'],
         'longitude-zip': zipcode['Longitude'],
-        'nearest-airport': p['ident'],
+        'nearest-hub': p['ident'],
+        'nearest-hub-name': p['airport_name'],
+        'nearest-hub-locid': p['Locid'],
         'latitude-air': p['latitude_deg'],
         'longitude-air': p['longitude_deg'],
         'distance': distance(zipcode['Latitude'],zipcode['Longitude'],p['latitude_deg'],p['longitude_deg'])
